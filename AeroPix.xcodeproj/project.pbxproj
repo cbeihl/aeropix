@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83621F811B72B6F50040213F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83621F801B72B6F50040213F /* AppDelegate.swift */; };
+		83621F831B72B6F50040213F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83621F821B72B6F50040213F /* ViewController.swift */; };
+		83621F861B72B6F50040213F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83621F841B72B6F50040213F /* Main.storyboard */; };
+		83621F881B72B6F50040213F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83621F871B72B6F50040213F /* Images.xcassets */; };
+		83621F8B1B72B6F50040213F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83621F891B72B6F50040213F /* LaunchScreen.xib */; };
+		83621F971B72B6F50040213F /* AeroPixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83621F961B72B6F50040213F /* AeroPixTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83621F911B72B6F50040213F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83621F731B72B6F50040213F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83621F7A1B72B6F50040213F;
+			remoteInfo = AeroPix;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		83621F7B1B72B6F50040213F /* AeroPix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeroPix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83621F7F1B72B6F50040213F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83621F801B72B6F50040213F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		83621F821B72B6F50040213F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		83621F851B72B6F50040213F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		83621F871B72B6F50040213F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		83621F8A1B72B6F50040213F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		83621F901B72B6F50040213F /* AeroPixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AeroPixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83621F951B72B6F50040213F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83621F961B72B6F50040213F /* AeroPixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroPixTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83621F781B72B6F50040213F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83621F8D1B72B6F50040213F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83621F721B72B6F50040213F = {
+			isa = PBXGroup;
+			children = (
+				83621F7D1B72B6F50040213F /* AeroPix */,
+				83621F931B72B6F50040213F /* AeroPixTests */,
+				83621F7C1B72B6F50040213F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83621F7C1B72B6F50040213F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83621F7B1B72B6F50040213F /* AeroPix.app */,
+				83621F901B72B6F50040213F /* AeroPixTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83621F7D1B72B6F50040213F /* AeroPix */ = {
+			isa = PBXGroup;
+			children = (
+				83621F801B72B6F50040213F /* AppDelegate.swift */,
+				83621F821B72B6F50040213F /* ViewController.swift */,
+				83621F841B72B6F50040213F /* Main.storyboard */,
+				83621F871B72B6F50040213F /* Images.xcassets */,
+				83621F891B72B6F50040213F /* LaunchScreen.xib */,
+				83621F7E1B72B6F50040213F /* Supporting Files */,
+			);
+			path = AeroPix;
+			sourceTree = "<group>";
+		};
+		83621F7E1B72B6F50040213F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83621F7F1B72B6F50040213F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83621F931B72B6F50040213F /* AeroPixTests */ = {
+			isa = PBXGroup;
+			children = (
+				83621F961B72B6F50040213F /* AeroPixTests.swift */,
+				83621F941B72B6F50040213F /* Supporting Files */,
+			);
+			path = AeroPixTests;
+			sourceTree = "<group>";
+		};
+		83621F941B72B6F50040213F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83621F951B72B6F50040213F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83621F7A1B72B6F50040213F /* AeroPix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83621F9A1B72B6F50040213F /* Build configuration list for PBXNativeTarget "AeroPix" */;
+			buildPhases = (
+				83621F771B72B6F50040213F /* Sources */,
+				83621F781B72B6F50040213F /* Frameworks */,
+				83621F791B72B6F50040213F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AeroPix;
+			productName = AeroPix;
+			productReference = 83621F7B1B72B6F50040213F /* AeroPix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83621F8F1B72B6F50040213F /* AeroPixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83621F9D1B72B6F50040213F /* Build configuration list for PBXNativeTarget "AeroPixTests" */;
+			buildPhases = (
+				83621F8C1B72B6F50040213F /* Sources */,
+				83621F8D1B72B6F50040213F /* Frameworks */,
+				83621F8E1B72B6F50040213F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83621F921B72B6F50040213F /* PBXTargetDependency */,
+			);
+			name = AeroPixTests;
+			productName = AeroPixTests;
+			productReference = 83621F901B72B6F50040213F /* AeroPixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83621F731B72B6F50040213F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = Chris;
+				TargetAttributes = {
+					83621F7A1B72B6F50040213F = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					83621F8F1B72B6F50040213F = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 83621F7A1B72B6F50040213F;
+					};
+				};
+			};
+			buildConfigurationList = 83621F761B72B6F50040213F /* Build configuration list for PBXProject "AeroPix" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83621F721B72B6F50040213F;
+			productRefGroup = 83621F7C1B72B6F50040213F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83621F7A1B72B6F50040213F /* AeroPix */,
+				83621F8F1B72B6F50040213F /* AeroPixTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83621F791B72B6F50040213F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83621F861B72B6F50040213F /* Main.storyboard in Resources */,
+				83621F8B1B72B6F50040213F /* LaunchScreen.xib in Resources */,
+				83621F881B72B6F50040213F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83621F8E1B72B6F50040213F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83621F771B72B6F50040213F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83621F831B72B6F50040213F /* ViewController.swift in Sources */,
+				83621F811B72B6F50040213F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83621F8C1B72B6F50040213F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83621F971B72B6F50040213F /* AeroPixTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83621F921B72B6F50040213F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83621F7A1B72B6F50040213F /* AeroPix */;
+			targetProxy = 83621F911B72B6F50040213F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83621F841B72B6F50040213F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83621F851B72B6F50040213F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		83621F891B72B6F50040213F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83621F8A1B72B6F50040213F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83621F981B72B6F50040213F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		83621F991B72B6F50040213F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83621F9B1B72B6F50040213F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AeroPix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		83621F9C1B72B6F50040213F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AeroPix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		83621F9E1B72B6F50040213F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AeroPixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AeroPix.app/AeroPix";
+			};
+			name = Debug;
+		};
+		83621F9F1B72B6F50040213F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AeroPixTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AeroPix.app/AeroPix";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83621F761B72B6F50040213F /* Build configuration list for PBXProject "AeroPix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83621F981B72B6F50040213F /* Debug */,
+				83621F991B72B6F50040213F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83621F9A1B72B6F50040213F /* Build configuration list for PBXNativeTarget "AeroPix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83621F9B1B72B6F50040213F /* Debug */,
+				83621F9C1B72B6F50040213F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		83621F9D1B72B6F50040213F /* Build configuration list for PBXNativeTarget "AeroPixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83621F9E1B72B6F50040213F /* Debug */,
+				83621F9F1B72B6F50040213F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83621F731B72B6F50040213F /* Project object */;
+}
