@@ -1,25 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AeroPix" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Not Available" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvX-IL-xO7">
+                                <rect key="frame" x="61" y="350" width="293" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFd-fh-mGI">
+                                <rect key="frame" x="0.0" y="626" width="414" height="110"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obh-sD-015">
+                                        <rect key="frame" x="173" y="21" width="68" height="68"/>
+                                        <state key="normal" image="green button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="greenButtonHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cUS-4I-UZD"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bM-rE-8g1">
+                                        <rect key="frame" x="173" y="21" width="68" height="68"/>
+                                        <state key="normal" image="red button"/>
+                                        <connections>
+                                            <action selector="redButtonHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fqz-vA-ASI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="6bM-rE-8g1" secondAttribute="centerY" id="2cA-KV-iyC"/>
+                                    <constraint firstAttribute="centerX" secondItem="6bM-rE-8g1" secondAttribute="centerX" id="Daw-Jx-wT2"/>
+                                    <constraint firstAttribute="centerY" secondItem="obh-sD-015" secondAttribute="centerY" id="Qr7-a4-bnQ"/>
+                                    <constraint firstAttribute="centerX" secondItem="obh-sD-015" secondAttribute="centerX" id="XhX-9w-7sa"/>
+                                    <constraint firstItem="obh-sD-015" firstAttribute="top" secondItem="lFd-fh-mGI" secondAttribute="top" constant="20" id="lJo-T0-tBz"/>
+                                    <constraint firstAttribute="height" constant="110" id="xqD-Xb-Rh4"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="lJo-T0-tBz"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.050397792599999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lFd-fh-mGI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6ld-it-R3A"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lFd-fh-mGI" secondAttribute="bottom" id="BJS-zA-kej"/>
+                            <constraint firstAttribute="trailing" secondItem="lFd-fh-mGI" secondAttribute="trailing" id="BfN-DV-TeR"/>
+                            <constraint firstAttribute="centerY" secondItem="fvX-IL-xO7" secondAttribute="centerY" id="OEb-hi-w0o"/>
+                            <constraint firstAttribute="centerX" secondItem="fvX-IL-xO7" secondAttribute="centerX" id="X1Z-Zu-weQ"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="cameraNotAvailLabel" destination="fvX-IL-xO7" id="cPd-Rg-CTD"/>
+                        <outlet property="cameraView" destination="8bC-Xf-vdC" id="r11-kR-u3U"/>
+                        <outlet property="greenButton" destination="obh-sD-015" id="1de-Dt-4Xh"/>
+                        <outlet property="redButton" destination="6bM-rE-8g1" id="p8n-e7-Gj6"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="green button" width="68" height="68"/>
+        <image name="red button" width="68" height="68"/>
+    </resources>
 </document>
