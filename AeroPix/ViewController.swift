@@ -25,6 +25,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var distSinceLastPhoto = 0.0
     var isRunning:Bool = false
     
+    let flightLog = FlightLogger()
+    
     // UIViewController Overrides
     
     override func viewDidLoad() {
@@ -103,6 +105,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if (isRunning && locations.count > 0) {
             let loc = locations[locations.count - 1] as! CLLocation
             println(loc)
+            flightLog.writeLog(loc.description)
             if (currentLoc != nil) {
                 let dist = currentLoc?.distanceFromLocation(loc) as CLLocationDistance!
                 distSinceLastPhoto += dist
