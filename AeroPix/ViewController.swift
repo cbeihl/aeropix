@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import CoreLocation
+import CoreMotion
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
@@ -24,6 +25,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var currentLoc:CLLocation? = nil
     var distSinceLastPhoto = 0.0
     var isRunning:Bool = false
+    
+    let altimeter = CMAltimeter()
     
     let flightLog = FlightLogger()
     
@@ -54,6 +57,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             println("Location services authorized !")
             locationMgr.startUpdatingLocation()
+        }
+        
+        // set up barometer
+        if (CMAltimeter.isRelativeAltitudeAvailable()) {
+            altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.mainQueue()) {
+                [weak self] (altData: CMAltitudeData!, error: NSError!) in
+                if (self!.isRunning) {
+                    println(altData)
+                    self!.flightLog.writeLog(altData.description)
+                }
+            }
+        } else {
+            println("Altimeter is NOT available !")
         }
     }
     
