@@ -19,11 +19,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var redButton: UIButton!
     
+    @IBOutlet weak var gpsAccurLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var photosTakenLabel: UILabel!
+    @IBOutlet weak var barometerLabel: UILabel!
+    
     let picker = UIImagePickerController()
     
     let locationMgr = CLLocationManager()
     var currentLoc:CLLocation? = nil
     var distSinceLastPhoto = 0.0
+    var photosTaken: Int = 0
     var isRunning:Bool = false
     
     let altimeter = CMAltimeter()
@@ -63,6 +69,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if (CMAltimeter.isRelativeAltitudeAvailable()) {
             altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.mainQueue()) {
                 [weak self] (altData: CMAltitudeData!, error: NSError!) in
+                let pressureStr = NSString(format: "%.3f", altData.pressure as Double)
+                self?.barometerLabel.text = "Barometer \(pressureStr) kPa"
                 if (self!.isRunning) {
                     println(altData)
                     self!.flightLog.writeLog(altData.description)
@@ -118,24 +126,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // CLLocationManager Delegates
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if (isRunning && locations.count > 0) {
+        if (locations.count > 0) {
             let loc = locations[locations.count - 1] as! CLLocation
-            println(loc)
-            flightLog.writeLog(loc.description)
-            if (currentLoc != nil) {
-                let dist = currentLoc?.distanceFromLocation(loc) as CLLocationDistance!
-                distSinceLastPhoto += dist
-            } else {
-                currentLoc = loc
+            if (isRunning) {
+                println(loc)
+                flightLog.writeLog(loc.description)
+                if (currentLoc != nil) {
+                    let dist = currentLoc?.distanceFromLocation(loc) as CLLocationDistance!
+                    distSinceLastPhoto += dist
+                } else {
+                    currentLoc = loc
+                }
+                
+                // update distance UI
+                let distString = NSString(format: "%.0f", distSinceLastPhoto)
+                distanceLabel.text = "Distance \(distString)m"
+                
+                // check if distance to take photo has been reached
+                println("distance since last photo - \(distSinceLastPhoto) meters")
+                flightLog.writeLog("distance since last photo - \(distSinceLastPhoto) meters")
+                if (distSinceLastPhoto > 500) {
+                    println("taking photo")
+                    flightLog.writeLog("taking photo")
+                    picker.takePicture()
+                    photosTaken++
+                    photosTakenLabel.text = "Photos Taken \(photosTaken)"
+                    distSinceLastPhoto = 0.0
+                }
             }
             
-            // check if distance to take photo has been reached
-            println("distance since last photo - \(distSinceLastPhoto) meters")
-            if (distSinceLastPhoto > 500) {
-                println("taking photo")
-                picker.takePicture()
-                distSinceLastPhoto = 0.0
-            }
+            // update gps UI
+            let gpsAccurStr = NSString(format: "%.0f", loc.horizontalAccuracy)
+            gpsAccurLabel.text = "GPS +/- \(gpsAccurStr)m"
         }
     }
     
