@@ -48,7 +48,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // set up location services
         locationMgr.delegate = self
-        locationMgr.desiredAccuracy = kCLLocationAccuracyBest
+        locationMgr.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         
         if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
             println("Requesting authorization to use location services ...")
@@ -131,7 +131,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             // check if distance to take photo has been reached
             println("distance since last photo - \(distSinceLastPhoto) meters")
-            if (distSinceLastPhoto > 50) {
+            if (distSinceLastPhoto > 500) {
                 println("taking photo")
                 picker.takePicture()
                 distSinceLastPhoto = 0.0
