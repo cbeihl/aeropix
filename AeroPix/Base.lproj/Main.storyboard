@@ -57,14 +57,60 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS +/- 5m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlS-Kr-fen">
+                                <rect key="frame" x="284" y="535" width="110" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="wGb-RZ-FqN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance  0m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbz-xI-gar">
+                                <rect key="frame" x="284" y="555" width="110" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="Y5c-QV-NHr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhF-bt-45H">
+                                <rect key="frame" x="174" y="597" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos Taken 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWd-VT-VeG">
+                                <rect key="frame" x="10" y="555" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barometer 98015 kPa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toV-c3-gOG">
+                                <rect key="frame" x="10" y="535" width="170" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.050397792599999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HlS-Kr-fen" secondAttribute="trailing" constant="20" id="0ib-jy-Wrw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="toV-c3-gOG" secondAttribute="bottom" constant="180" id="2Wf-pm-LIU"/>
                             <constraint firstItem="lFd-fh-mGI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6ld-it-R3A"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lFd-fh-mGI" secondAttribute="bottom" id="BJS-zA-kej"/>
                             <constraint firstAttribute="trailing" secondItem="lFd-fh-mGI" secondAttribute="trailing" id="BfN-DV-TeR"/>
+                            <constraint firstItem="bbz-xI-gar" firstAttribute="bottom" secondItem="HlS-Kr-fen" secondAttribute="bottom" constant="20" id="CMm-YH-q96"/>
+                            <constraint firstAttribute="centerX" secondItem="QhF-bt-45H" secondAttribute="centerX" id="KcI-GB-JTm"/>
+                            <constraint firstAttribute="trailing" secondItem="bbz-xI-gar" secondAttribute="trailing" constant="20" id="Nll-vU-F2z"/>
                             <constraint firstAttribute="centerY" secondItem="fvX-IL-xO7" secondAttribute="centerY" id="OEb-hi-w0o"/>
                             <constraint firstAttribute="centerX" secondItem="fvX-IL-xO7" secondAttribute="centerX" id="X1Z-Zu-weQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HlS-Kr-fen" secondAttribute="bottom" constant="180" id="XhJ-lj-QaF"/>
+                            <constraint firstItem="ZWd-VT-VeG" firstAttribute="bottom" secondItem="toV-c3-gOG" secondAttribute="bottom" constant="20" id="fpf-Pm-rNp"/>
+                            <constraint firstItem="lFd-fh-mGI" firstAttribute="top" secondItem="QhF-bt-45H" secondAttribute="bottom" constant="8" id="k9e-bt-MLn"/>
+                            <constraint firstItem="toV-c3-gOG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="tzJ-if-clg"/>
+                            <constraint firstItem="ZWd-VT-VeG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="uaG-M2-0T7"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -77,6 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="497" y="455"/>
         </scene>
     </scenes>
     <resources>
