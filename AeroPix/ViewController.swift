@@ -134,12 +134,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 if (currentLoc != nil) {
                     let dist = currentLoc?.distanceFromLocation(loc) as CLLocationDistance!
                     distSinceLastPhoto += dist
-                } else {
-                    currentLoc = loc
                 }
+                currentLoc = loc
                 
                 // update distance UI
-                let distString = NSString(format: "%.0f", distSinceLastPhoto)
+                let distString = NSString(format: "%.1f", distSinceLastPhoto)
                 distanceLabel.text = "Distance \(distString)m"
                 
                 // check if distance to take photo has been reached
