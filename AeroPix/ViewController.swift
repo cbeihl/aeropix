@@ -70,7 +70,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.mainQueue()) {
                 [weak self] (altData: CMAltitudeData!, error: NSError!) in
                 let pressureStr = NSString(format: "%.3f", altData.pressure as Double)
-                self?.barometerLabel.text = "Barometer \(pressureStr) kPa"
+                self?.barometerLabel.text = "\(pressureStr) kPa"
                 if (self!.isRunning) {
                     println(altData)
                     self!.flightLog.writeLog(altData.description)
@@ -139,7 +139,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 // update distance UI
                 let distString = NSString(format: "%.1f", distSinceLastPhoto)
-                distanceLabel.text = "Distance \(distString)m"
+                distanceLabel.text = "\(distString)m"
                 
                 // check if distance to take photo has been reached
                 println("distance since last photo - \(distSinceLastPhoto) meters")
@@ -156,7 +156,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             // update gps UI
             let gpsAccurStr = NSString(format: "%.0f", loc.horizontalAccuracy)
-            gpsAccurLabel.text = "GPS +/- \(gpsAccurStr)m"
+            gpsAccurLabel.text = "~\(gpsAccurStr)m"
         }
     }
     

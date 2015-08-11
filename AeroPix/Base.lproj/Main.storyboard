@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -51,38 +52,35 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPS N/A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlS-Kr-fen">
-                                <rect key="frame" x="264" y="535" width="140" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="wGb-RZ-FqN"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="N/A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlS-Kr-fen">
+                                <rect key="frame" x="328" y="506" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance  0.0m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbz-xI-gar">
-                                <rect key="frame" x="264" y="555" width="140" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbz-xI-gar">
+                                <rect key="frame" x="328" y="536" width="70" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="Y5c-QV-NHr"/>
+                                    <constraint firstAttribute="width" constant="70" id="Y5c-QV-NHr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhF-bt-45H">
-                                <rect key="frame" x="174" y="597" width="67" height="21"/>
+                                <rect key="frame" x="163" y="590" width="89" height="28"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWd-VT-VeG">
+                                <rect key="frame" x="46" y="536" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos Taken 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWd-VT-VeG">
-                                <rect key="frame" x="10" y="555" width="122" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barometer N/A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toV-c3-gOG">
-                                <rect key="frame" x="10" y="535" width="118" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toV-c3-gOG">
+                                <rect key="frame" x="46" y="506" width="30" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -93,24 +91,44 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gps-receiving-20px" translatesAutoresizingMaskIntoConstraints="NO" id="VAP-KG-o1h">
+                                <rect key="frame" x="298" y="506" width="20" height="20"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distance icon-20px" translatesAutoresizingMaskIntoConstraints="NO" id="1TP-Dc-1Ks">
+                                <rect key="frame" x="298" y="536" width="20" height="20"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barometer icon-20px" translatesAutoresizingMaskIntoConstraints="NO" id="eZY-1N-wds">
+                                <rect key="frame" x="16" y="506" width="20" height="20"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera icon-20px" translatesAutoresizingMaskIntoConstraints="NO" id="sIU-MK-G56">
+                                <rect key="frame" x="16" y="536" width="20" height="20"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.050397792599999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HlS-Kr-fen" secondAttribute="trailing" constant="10" id="0ib-jy-Wrw"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="toV-c3-gOG" secondAttribute="bottom" constant="180" id="2Wf-pm-LIU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VAP-KG-o1h" secondAttribute="trailing" constant="80" id="0vJ-de-Epy"/>
+                            <constraint firstItem="1TP-Dc-1Ks" firstAttribute="leading" secondItem="bbz-xI-gar" secondAttribute="leading" constant="-30" id="4oq-oU-nZ1"/>
                             <constraint firstItem="lFd-fh-mGI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6ld-it-R3A"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lFd-fh-mGI" secondAttribute="bottom" id="BJS-zA-kej"/>
                             <constraint firstAttribute="trailing" secondItem="lFd-fh-mGI" secondAttribute="trailing" id="BfN-DV-TeR"/>
-                            <constraint firstItem="bbz-xI-gar" firstAttribute="bottom" secondItem="HlS-Kr-fen" secondAttribute="bottom" constant="20" id="CMm-YH-q96"/>
+                            <constraint firstItem="sIU-MK-G56" firstAttribute="centerY" secondItem="ZWd-VT-VeG" secondAttribute="centerY" id="GNd-gW-n7o"/>
                             <constraint firstAttribute="centerX" secondItem="QhF-bt-45H" secondAttribute="centerX" id="KcI-GB-JTm"/>
-                            <constraint firstAttribute="trailing" secondItem="bbz-xI-gar" secondAttribute="trailing" constant="10" id="Nll-vU-F2z"/>
                             <constraint firstAttribute="centerY" secondItem="fvX-IL-xO7" secondAttribute="centerY" id="OEb-hi-w0o"/>
+                            <constraint firstItem="VAP-KG-o1h" firstAttribute="centerY" secondItem="HlS-Kr-fen" secondAttribute="centerY" id="Puu-Bm-7lI"/>
+                            <constraint firstItem="sIU-MK-G56" firstAttribute="leading" secondItem="eZY-1N-wds" secondAttribute="leading" id="TUy-c5-bn8"/>
+                            <constraint firstItem="VAP-KG-o1h" firstAttribute="top" secondItem="1TP-Dc-1Ks" secondAttribute="top" constant="-30" id="V10-Go-SZd"/>
+                            <constraint firstItem="eZY-1N-wds" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Vgh-DO-HJx"/>
                             <constraint firstAttribute="centerX" secondItem="fvX-IL-xO7" secondAttribute="centerX" id="X1Z-Zu-weQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HlS-Kr-fen" secondAttribute="bottom" constant="180" id="XhJ-lj-QaF"/>
-                            <constraint firstItem="ZWd-VT-VeG" firstAttribute="bottom" secondItem="toV-c3-gOG" secondAttribute="bottom" constant="20" id="fpf-Pm-rNp"/>
+                            <constraint firstItem="1TP-Dc-1Ks" firstAttribute="centerY" secondItem="bbz-xI-gar" secondAttribute="centerY" id="Ytx-DP-SZs"/>
+                            <constraint firstItem="sIU-MK-G56" firstAttribute="top" secondItem="eZY-1N-wds" secondAttribute="top" constant="30" id="aHg-L5-tqc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eZY-1N-wds" secondAttribute="bottom" constant="210" id="ap8-Mq-egu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VAP-KG-o1h" secondAttribute="bottom" constant="210" id="dCO-nZ-Q2O"/>
+                            <constraint firstItem="sIU-MK-G56" firstAttribute="leading" secondItem="ZWd-VT-VeG" secondAttribute="leading" constant="-30" id="e7b-KM-gAI"/>
+                            <constraint firstItem="VAP-KG-o1h" firstAttribute="leading" secondItem="HlS-Kr-fen" secondAttribute="leading" constant="-30" id="eFn-R2-grj"/>
+                            <constraint firstItem="eZY-1N-wds" firstAttribute="centerY" secondItem="toV-c3-gOG" secondAttribute="centerY" id="iE9-iD-kBp"/>
                             <constraint firstItem="lFd-fh-mGI" firstAttribute="top" secondItem="QhF-bt-45H" secondAttribute="bottom" constant="8" id="k9e-bt-MLn"/>
-                            <constraint firstItem="toV-c3-gOG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="tzJ-if-clg"/>
-                            <constraint firstItem="ZWd-VT-VeG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="uaG-M2-0T7"/>
+                            <constraint firstItem="eZY-1N-wds" firstAttribute="leading" secondItem="toV-c3-gOG" secondAttribute="leading" constant="-30" id="w1w-eA-U6Y"/>
+                            <constraint firstItem="1TP-Dc-1Ks" firstAttribute="leading" secondItem="VAP-KG-o1h" secondAttribute="leading" id="xQX-hv-uAM"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -127,10 +145,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="497" y="455"/>
+            <point key="canvasLocation" x="393" y="463"/>
         </scene>
     </scenes>
     <resources>
+        <image name="barometer icon-20px" width="20" height="20"/>
+        <image name="camera icon-20px" width="20" height="20"/>
+        <image name="distance icon-20px" width="20" height="20"/>
+        <image name="gps-receiving-20px" width="20" height="20"/>
         <image name="green button" width="68" height="68"/>
         <image name="red button" width="68" height="68"/>
     </resources>
