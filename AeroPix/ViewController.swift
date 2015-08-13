@@ -13,28 +13,27 @@ import CoreMotion
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
+    // Interface Builder Outlets
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var cameraNotAvailLabel: UILabel!
-    
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var redButton: UIButton!
-    
     @IBOutlet weak var gpsAccurLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var photosTakenLabel: UILabel!
     @IBOutlet weak var barometerLabel: UILabel!
     
-    let picker = UIImagePickerController()
-    
     let locationMgr = CLLocationManager()
-    var currentLoc:CLLocation? = nil
-    var distSinceLastPhoto = 0.0
-    var photosTaken: Int = 0
-    var isRunning:Bool = false
-    
     let altimeter = CMAltimeter()
     
-    let flightLog = FlightLogger()
+    let picker = UIImagePickerController()
+    var gpsHandler: GpsHandler? = nil
+    
+    let gpsFlightLog = FlightLogger(filename: "flightlog_gps.txt", firstLine: "Timestamp,Latitude,Longitude,Accuracy,Speed (mps),Course (degrees)")
+    let altFlightLog = FlightLogger(filename: "flightlog_alt.txt", firstLine: "Seconds,Relative Altitude (meters),Pressure (kPa)")
+    
+    var isRunning:Bool = false
+    
     
     // UIViewController Overrides
     
@@ -42,7 +41,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // set up UIImagePickerController
+        // Set Up UIImagePickerController
         picker.delegate = self
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
             picker.sourceType = UIImagePickerControllerSourceType.Camera
@@ -52,8 +51,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         picker.mediaTypes = [ kUTTypeImage ]
         
-        // set up location services
-        locationMgr.delegate = self
+        // Set Up Location Services
+        gpsHandler = GpsHandler(imagePicker: picker, distLabel: distanceLabel, gpsAccurLabel: gpsAccurLabel, photosTakenLabel: photosTakenLabel,  flightLog: gpsFlightLog)
+        locationMgr.delegate = gpsHandler
         locationMgr.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         
         if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             locationMgr.startUpdatingLocation()
         }
         
-        // set up barometer
+        // Set Up Barometer
         if (CMAltimeter.isRelativeAltitudeAvailable()) {
             altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.mainQueue()) {
                 [weak self] (altData: CMAltitudeData!, error: NSError!) in
@@ -73,7 +73,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self?.barometerLabel.text = "\(pressureStr) kPa"
                 if (self!.isRunning) {
                     println(altData)
-                    self!.flightLog.writeLog(altData.description)
+                    self!.altFlightLog.writeLog(altData.description)
                 }
             }
         } else {
@@ -83,9 +83,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidAppear(animated: Bool) {
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            // make camera preview big enough to fill available space
             picker.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.4, 1.4)
             self.cameraView.insertSubview(picker.view, atIndex: 0)
         }
+        
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
     }
     
@@ -114,54 +116,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         redButton.hidden = false
         greenButton.hidden = true
         isRunning = true
+        gpsHandler?.setRunning(isRunning)
     }
     
     @IBAction func redButtonHandler(sender: UIButton) {
         greenButton.hidden = false
         redButton.hidden = true
         isRunning = false
-    }
-    
-    
-    // CLLocationManager Delegates
-    
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if (locations.count > 0) {
-            let loc = locations[locations.count - 1] as! CLLocation
-            if (isRunning) {
-                println(loc)
-                flightLog.writeLog(loc.description)
-                if (currentLoc != nil) {
-                    let dist = currentLoc?.distanceFromLocation(loc) as CLLocationDistance!
-                    distSinceLastPhoto += dist
-                }
-                currentLoc = loc
-                
-                // update distance UI
-                let distString = NSString(format: "%.1f", distSinceLastPhoto)
-                distanceLabel.text = "\(distString)m"
-                
-                // check if distance to take photo has been reached
-                println("distance since last photo - \(distSinceLastPhoto) meters")
-                flightLog.writeLog("distance since last photo - \(distSinceLastPhoto) meters")
-                if (distSinceLastPhoto > 500) {
-                    println("taking photo")
-                    flightLog.writeLog("taking photo")
-                    picker.takePicture()
-                    photosTaken++
-                    photosTakenLabel.text = "Photos Taken \(photosTaken)"
-                    distSinceLastPhoto = 0.0
-                }
-            }
-            
-            // update gps UI
-            let gpsAccurStr = NSString(format: "%.0f", loc.horizontalAccuracy)
-            gpsAccurLabel.text = "~\(gpsAccurStr)m"
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Location Manager Error : \(error)")
+        gpsHandler?.setRunning(isRunning)
     }
     
 }

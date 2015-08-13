@@ -10,15 +10,16 @@ import Foundation
 
 class FlightLogger {
     
-    let filename = "flightlog.txt"
+    var filename = "flightlog.txt"
     var docTxtPath: String? = nil
     var logFile: NSFileHandle? = nil
     
-    init() {
+    init(filename: String, firstLine: String) {
+        self.filename = filename
         let paths: NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let docDir: String = paths[0] as! String
         docTxtPath = docDir.stringByAppendingPathComponent(filename)
-        let txtHeader = "Flight Log\n"
+        let txtHeader = "\(firstLine)\n"
         txtHeader.writeToFile(docTxtPath!, atomically: false, encoding: NSUTF8StringEncoding)
     }
 

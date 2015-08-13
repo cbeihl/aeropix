@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		833C9E3D1B73C558003B27E9 /* FlightLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C9E3C1B73C558003B27E9 /* FlightLogger.swift */; };
+		833EFF831B7A40AD00128B21 /* GpsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833EFF821B7A40AD00128B21 /* GpsHandler.swift */; };
 		83621F811B72B6F50040213F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83621F801B72B6F50040213F /* AppDelegate.swift */; };
 		83621F831B72B6F50040213F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83621F821B72B6F50040213F /* ViewController.swift */; };
 		83621F861B72B6F50040213F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83621F841B72B6F50040213F /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		833C9E3C1B73C558003B27E9 /* FlightLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightLogger.swift; sourceTree = "<group>"; };
+		833EFF821B7A40AD00128B21 /* GpsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsHandler.swift; sourceTree = "<group>"; };
 		83621F7B1B72B6F50040213F /* AeroPix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AeroPix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83621F7F1B72B6F50040213F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83621F801B72B6F50040213F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				83621F891B72B6F50040213F /* LaunchScreen.xib */,
 				83621F7E1B72B6F50040213F /* Supporting Files */,
 				833C9E3C1B73C558003B27E9 /* FlightLogger.swift */,
+				833EFF821B7A40AD00128B21 /* GpsHandler.swift */,
 			);
 			path = AeroPix;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				83621F831B72B6F50040213F /* ViewController.swift in Sources */,
 				83621F811B72B6F50040213F /* AppDelegate.swift in Sources */,
 				833C9E3D1B73C558003B27E9 /* FlightLogger.swift in Sources */,
+				833EFF831B7A40AD00128B21 /* GpsHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
