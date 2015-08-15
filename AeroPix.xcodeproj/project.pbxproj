@@ -15,6 +15,7 @@
 		83621F881B72B6F50040213F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83621F871B72B6F50040213F /* Images.xcassets */; };
 		83621F8B1B72B6F50040213F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83621F891B72B6F50040213F /* LaunchScreen.xib */; };
 		83621F971B72B6F50040213F /* AeroPixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83621F961B72B6F50040213F /* AeroPixTests.swift */; };
+		839C126A1B7C3C380011CB5B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C12691B7C3C380011CB5B /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		83621F901B72B6F50040213F /* AeroPixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AeroPixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83621F951B72B6F50040213F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83621F961B72B6F50040213F /* AeroPixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AeroPixTests.swift; sourceTree = "<group>"; };
+		839C12691B7C3C380011CB5B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				83621F7E1B72B6F50040213F /* Supporting Files */,
 				833C9E3C1B73C558003B27E9 /* FlightLogger.swift */,
 				833EFF821B7A40AD00128B21 /* GpsHandler.swift */,
+				839C12691B7C3C380011CB5B /* SettingsViewController.swift */,
 			);
 			path = AeroPix;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				83621F831B72B6F50040213F /* ViewController.swift in Sources */,
 				83621F811B72B6F50040213F /* AppDelegate.swift in Sources */,
 				833C9E3D1B73C558003B27E9 /* FlightLogger.swift in Sources */,
+				839C126A1B7C3C380011CB5B /* SettingsViewController.swift in Sources */,
 				833EFF831B7A40AD00128B21 /* GpsHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
