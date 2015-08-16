@@ -152,6 +152,7 @@
                         <outlet property="greenButton" destination="obh-sD-015" id="1de-Dt-4Xh"/>
                         <outlet property="photosTakenLabel" destination="ZWd-VT-VeG" id="PcH-df-cdi"/>
                         <outlet property="redButton" destination="6bM-rE-8g1" id="p8n-e7-Gj6"/>
+                        <outlet property="timerLabel" destination="QhF-bt-45H" id="14r-2V-svf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

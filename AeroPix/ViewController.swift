@@ -22,6 +22,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var photosTakenLabel: UILabel!
     @IBOutlet weak var barometerLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     let locationMgr = CLLocationManager()
     let altimeter = CMAltimeter()
@@ -31,6 +32,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let gpsFlightLog = FlightLogger(filename: "flightlog_gps.txt", firstLine: "Timestamp,Latitude,Longitude,Accuracy,Speed (mps),Course (degrees)")
     let altFlightLog = FlightLogger(filename: "flightlog_alt.txt", firstLine: "Seconds,Relative Altitude (meters),Pressure (kPa)")
+    
+    let dateFormatter = NSDateFormatter()
+    var startDate: NSDate? = nil
+    var timerObj: NSTimer? = nil
     
     var isRunning:Bool = false
     
@@ -79,6 +84,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             println("Altimeter is NOT available !")
         }
+        
+        // Timer setup
+        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -110,6 +119,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
+    // Timer Functions
+    
+    func startTimer() {
+        if (timerObj == nil) {
+            timerObj = NSTimer.scheduledTimerWithTimeInterval(1.0/10.0, target: self, selector: "timerHandler", userInfo: nil, repeats: true)
+            startDate = NSDate()
+        }
+    }
+    
+    func stopTimer() {
+        timerObj?.invalidate()
+        timerObj = nil
+    }
+    
+    func timerHandler() {
+        let curDate = NSDate()
+        let timeInterval = curDate.timeIntervalSinceDate(startDate!)
+        let timerDate = NSDate(timeIntervalSince1970: timeInterval)
+        let timeString = dateFormatter.stringFromDate(timerDate)
+        timerLabel.text = timeString
+    }
+    
     //  Action Handlers
     
     @IBAction func greenButtonHandler(sender: UIButton) {
@@ -117,6 +148,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         greenButton.hidden = true
         isRunning = true
         gpsHandler?.setRunning(isRunning)
+        startTimer()
     }
     
     @IBAction func redButtonHandler(sender: UIButton) {
@@ -124,6 +156,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         redButton.hidden = true
         isRunning = false
         gpsHandler?.setRunning(isRunning)
+        stopTimer()
     }
     
 }
