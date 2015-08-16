@@ -97,7 +97,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.cameraView.insertSubview(picker.view, atIndex: 0)
         }
         
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
+        // UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
     }
     
     override func didReceiveMemoryWarning() {
