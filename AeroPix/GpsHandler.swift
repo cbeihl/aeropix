@@ -59,7 +59,7 @@ class GpsHandler: NSObject, CLLocationManagerDelegate {
                     flightLog.writeLog("taking photo")
                     imagePicker.takePicture()
                     photosTaken++
-                    photosTakenLabel.text = "Photos Taken \(photosTaken)"
+                    photosTakenLabel.text = "\(photosTaken)"
                     distSinceLastPhoto = 0.0
                 }
             }

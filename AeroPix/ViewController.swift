@@ -74,8 +74,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if (CMAltimeter.isRelativeAltitudeAvailable()) {
             altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.mainQueue()) {
                 [weak self] (altData: CMAltitudeData!, error: NSError!) in
-                let pressureStr = NSString(format: "%.3f", altData.pressure as Double)
-                self?.barometerLabel.text = "\(pressureStr) kPa"
+                let pressureStr = NSString(format: "%.1f", altData.relativeAltitude as Double)
+                self?.barometerLabel.text = "\(pressureStr) m"
                 if (self!.isRunning) {
                     println(altData)
                     self!.altFlightLog.writeLog(altData.description)
@@ -93,7 +93,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidAppear(animated: Bool) {
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
             // make camera preview big enough to fill available space
-            picker.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.4, 1.4)
+            picker.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.6, 1.6)
             self.cameraView.insertSubview(picker.view, atIndex: 0)
         }
         
