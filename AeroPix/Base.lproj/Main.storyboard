@@ -116,16 +116,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AeroPix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHD-5I-h5N">
-                                        <rect key="frame" x="136" y="6" width="143" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                        <rect key="frame" x="143" y="3" width="161" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="45"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aeropix logo bw-48px" translatesAutoresizingMaskIntoConstraints="NO" id="9Fz-N7-7oE">
+                                        <rect key="frame" x="83" y="6" width="48" height="48"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="dHD-5I-h5N" secondAttribute="centerX" id="FjU-Fk-jio"/>
+                                    <constraint firstAttribute="centerX" secondItem="dHD-5I-h5N" secondAttribute="centerX" constant="-16" id="FjU-Fk-jio"/>
                                     <constraint firstAttribute="height" constant="60" id="FrT-vi-X8m"/>
+                                    <constraint firstAttribute="centerY" secondItem="9Fz-N7-7oE" secondAttribute="centerY" id="NQQ-JT-DSs"/>
+                                    <constraint firstItem="9Fz-N7-7oE" firstAttribute="trailing" secondItem="dHD-5I-h5N" secondAttribute="leading" priority="1" constant="-12" id="oKS-MQ-5UM"/>
                                     <constraint firstAttribute="centerY" secondItem="dHD-5I-h5N" secondAttribute="centerY" id="rtl-eF-itb"/>
                                 </constraints>
                             </view>
@@ -222,6 +227,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="aeropix logo bw-48px" width="48" height="48"/>
         <image name="altitude icon-20px" width="20" height="20"/>
         <image name="camera icon-20px" width="20" height="20"/>
         <image name="distance icon-20px" width="20" height="20"/>
