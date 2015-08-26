@@ -158,6 +158,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         locDict.setObject(curLocation.horizontalAccuracy, forKey: kCGImagePropertyGPSDOP as String)
         locDict.setObject(curLocation.altitude, forKey: kCGImagePropertyGPSAltitude as String)
         
+        if (curLocation.speed >= 0) {
+            locDict.setObject(curLocation.speed * (3600.0/1000.0), forKey: kCGImagePropertyGPSSpeed as String)
+            locDict.setObject("K", forKey: kCGImagePropertyGPSSpeedRef as String)
+        }
+        
+        if (curLocation.course >= 0) {
+            locDict.setObject(curLocation.course forKey: kCGImagePropertyGPSTrack as String)
+            locDict.setObject("T", forKey: kCGImagePropertyGPSTrackRef as String)
+        }
+        
         return locDict
     }
     
