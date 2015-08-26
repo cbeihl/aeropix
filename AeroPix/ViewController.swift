@@ -8,8 +8,10 @@
 
 import UIKit
 import MobileCoreServices
+import AssetsLibrary
 import CoreLocation
 import CoreMotion
+import ImageIO
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
@@ -111,11 +113,52 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         println("Saving image to camera roll...")
         let img = info[UIImagePickerControllerOriginalImage] as! UIImage
-        UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil)
+        let metadata = info[UIImagePickerControllerMediaMetadata] as! NSDictionary
+        let mutableMetadata = metadata.mutableCopy() as! NSMutableDictionary
+        mutableMetadata.setObject(1.0, forKey: kCGImageDestinationLossyCompressionQuality as String)
+        
+        let loc = gpsHandler?.getCurrentLoc()
+        if (loc != nil) {
+            mutableMetadata.setObject(gpsDictionaryForLocation(loc!), forKey: kCGImagePropertyGPSDictionary as String)
+        }
+        
+        let assetsLib = ALAssetsLibrary()
+        assetsLib.writeImageToSavedPhotosAlbum(img.CGImage, metadata: mutableMetadata as [NSObject: AnyObject], completionBlock: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+    func gpsDictionaryForLocation(curLocation: CLLocation) -> NSDictionary {
+        var exifLat = curLocation.coordinate.latitude
+        var exifLon = curLocation.coordinate.longitude
+        
+        var latRef, lonRef : String
+        if (exifLat < 0.0) {
+            exifLat = exifLat * -1.0
+            latRef = "S"
+        } else {
+            latRef = "N"
+        }
+        
+        if (exifLon < 0.0) {
+            exifLon = exifLon * -1.0
+            lonRef = "W"
+        } else {
+            lonRef = "E"
+        }
+        
+        let locDict = NSMutableDictionary()
+        locDict.setObject(curLocation.timestamp, forKey: kCGImagePropertyGPSTimeStamp as String)
+        locDict.setObject(latRef, forKey: kCGImagePropertyGPSLatitudeRef as String)
+        locDict.setObject(exifLat, forKey: kCGImagePropertyGPSLatitude as String)
+        locDict.setObject(lonRef, forKey: kCGImagePropertyGPSLongitudeRef as String)
+        locDict.setObject(exifLon, forKey: kCGImagePropertyGPSLongitude as String)
+        locDict.setObject(curLocation.horizontalAccuracy, forKey: kCGImagePropertyGPSDOP as String)
+        locDict.setObject(curLocation.altitude, forKey: kCGImagePropertyGPSAltitude as String)
+        
+        return locDict
     }
     
     
@@ -149,6 +192,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         isRunning = true
         gpsHandler?.setRunning(isRunning)
         startTimer()
+        
+        picker.takePicture()
     }
     
     @IBAction func redButtonHandler(sender: UIButton) {

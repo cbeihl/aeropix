@@ -35,6 +35,10 @@ class GpsHandler: NSObject, CLLocationManagerDelegate {
         self.isRunning = isRunning
     }
     
+    func getCurrentLoc() -> CLLocation? {
+        return self.currentLoc
+    }
+    
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if (locations.count > 0) {
             let loc = locations[locations.count - 1] as! CLLocation
