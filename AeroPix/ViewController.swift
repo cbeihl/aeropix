@@ -16,6 +16,7 @@ import ImageIO
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
     
     // Interface Builder Outlets
+    @IBOutlet weak var droneLogo: UIImageView!
     @IBOutlet var cameraView: UIView!
     @IBOutlet weak var cameraNotAvailLabel: UILabel!
     @IBOutlet weak var greenButton: UIButton!
@@ -32,8 +33,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let picker = UIImagePickerController()
     var gpsHandler: GpsHandler? = nil
     
-    let gpsFlightLog = FlightLogger(filename: "flightlog_gps.txt", firstLine: "Timestamp,Latitude,Longitude,Accuracy,Speed (mps),Course (degrees)")
-    let altFlightLog = FlightLogger(filename: "flightlog_alt.txt", firstLine: "Seconds,Relative Altitude (meters),Pressure (kPa)")
+    let gpsFlightLog = FlightLogger(filename: "flightlog_gps.csv", firstLine: "Timestamp,Latitude,Longitude,Altitude,Accuracy,Speed (mps),Course (degrees)")
+    let altFlightLog = FlightLogger(filename: "flightlog_alt.csv", firstLine: "Seconds,Relative Altitude (meters),Pressure (kPa)")
+    let picFlightLog = FlightLogger(filename: "flightlog_pics.csv", firstLine: "Seconds,Picture Number")
     
     let dateFormatter = NSDateFormatter()
     var startDate: NSDate? = nil
@@ -59,7 +61,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.mediaTypes = [ kUTTypeImage ]
         
         // Set Up Location Services
-        gpsHandler = GpsHandler(imagePicker: picker, distLabel: distanceLabel, gpsAccurLabel: gpsAccurLabel, photosTakenLabel: photosTakenLabel,  flightLog: gpsFlightLog)
+        gpsHandler = GpsHandler(imagePicker: picker, distLabel: distanceLabel, gpsAccurLabel: gpsAccurLabel, photosTakenLabel: photosTakenLabel,  flightLog: gpsFlightLog, picLog: picFlightLog)
         locationMgr.delegate = gpsHandler
         locationMgr.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         
@@ -79,8 +81,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let pressureStr = NSString(format: "%.1f", altData.relativeAltitude as Double)
                 self?.barometerLabel.text = "\(pressureStr) m"
                 if (self!.isRunning) {
-                    println(altData)
-                    self!.altFlightLog.writeLog(altData.description)
+                    let commaStr = ","
+                    let altStr = commaStr.join([ altData.timestamp.description, altData.relativeAltitude.description, altData.pressure.description ])
+                    println(altStr)
+                    self!.altFlightLog.writeLog(altStr)
                 }
             }
         } else {
@@ -98,6 +102,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             picker.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.6, 1.6)
             self.cameraView.insertSubview(picker.view, atIndex: 0)
         }
+        
+        UIView.animateWithDuration(2.0, animations: {
+            self.droneLogo.center.y = 30
+        })
         
         // UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.None)
     }
@@ -164,7 +172,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         if (curLocation.course >= 0) {
-            locDict.setObject(curLocation.course forKey: kCGImagePropertyGPSTrack as String)
+            locDict.setObject(curLocation.course, forKey: kCGImagePropertyGPSTrack as String)
             locDict.setObject("T", forKey: kCGImagePropertyGPSTrackRef as String)
         }
         
@@ -202,8 +210,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         isRunning = true
         gpsHandler?.setRunning(isRunning)
         startTimer()
-        
-        picker.takePicture()
     }
     
     @IBAction func redButtonHandler(sender: UIButton) {

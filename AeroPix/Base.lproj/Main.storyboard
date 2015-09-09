@@ -122,14 +122,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aeropix logo bw-48px" translatesAutoresizingMaskIntoConstraints="NO" id="9Fz-N7-7oE">
-                                        <rect key="frame" x="83" y="6" width="48" height="48"/>
+                                        <rect key="frame" x="83" y="712" width="48" height="48"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="dHD-5I-h5N" secondAttribute="centerX" constant="-16" id="FjU-Fk-jio"/>
                                     <constraint firstAttribute="height" constant="60" id="FrT-vi-X8m"/>
-                                    <constraint firstAttribute="centerY" secondItem="9Fz-N7-7oE" secondAttribute="centerY" id="NQQ-JT-DSs"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Fz-N7-7oE" secondAttribute="bottom" constant="-700" id="ggs-5X-iTg"/>
                                     <constraint firstItem="9Fz-N7-7oE" firstAttribute="trailing" secondItem="dHD-5I-h5N" secondAttribute="leading" priority="1" constant="-12" id="oKS-MQ-5UM"/>
                                     <constraint firstAttribute="centerY" secondItem="dHD-5I-h5N" secondAttribute="centerY" id="rtl-eF-itb"/>
                                 </constraints>
@@ -163,6 +163,7 @@
                         <outlet property="cameraNotAvailLabel" destination="fvX-IL-xO7" id="cPd-Rg-CTD"/>
                         <outlet property="cameraView" destination="8bC-Xf-vdC" id="r11-kR-u3U"/>
                         <outlet property="distanceLabel" destination="bbz-xI-gar" id="uB8-I4-vLT"/>
+                        <outlet property="droneLogo" destination="9Fz-N7-7oE" id="V3k-Se-GsH"/>
                         <outlet property="gpsAccurLabel" destination="HlS-Kr-fen" id="fBM-q7-MaA"/>
                         <outlet property="greenButton" destination="obh-sD-015" id="1de-Dt-4Xh"/>
                         <outlet property="photosTakenLabel" destination="ZWd-VT-VeG" id="PcH-df-cdi"/>

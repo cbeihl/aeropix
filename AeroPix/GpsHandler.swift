@@ -15,7 +15,7 @@ class GpsHandler: NSObject, CLLocationManagerDelegate {
     var distLabel: UILabel
     var gpsAccurLabel: UILabel
     var photosTakenLabel: UILabel
-    var flightLog: FlightLogger
+    var flightLog, picLog: FlightLogger
     
     var currentLoc:CLLocation? = nil
     var distSinceLastPhoto = 0.0
@@ -23,12 +23,13 @@ class GpsHandler: NSObject, CLLocationManagerDelegate {
     var isRunning = false
     
     
-    init(imagePicker: UIImagePickerController, distLabel: UILabel, gpsAccurLabel: UILabel, photosTakenLabel: UILabel, flightLog: FlightLogger) {
+    init(imagePicker: UIImagePickerController, distLabel: UILabel, gpsAccurLabel: UILabel, photosTakenLabel: UILabel, flightLog: FlightLogger, picLog: FlightLogger) {
         self.imagePicker = imagePicker
         self.distLabel = distLabel
         self.gpsAccurLabel = gpsAccurLabel
         self.photosTakenLabel = photosTakenLabel
         self.flightLog = flightLog
+        self.picLog = picLog
     }
     
     func setRunning(isRunning: Bool) {
@@ -44,7 +45,12 @@ class GpsHandler: NSObject, CLLocationManagerDelegate {
             let loc = locations[locations.count - 1] as! CLLocation
             if (isRunning) {
                 println(loc)
-                flightLog.writeLog(loc.description)
+                let commaStr = ","
+                let locArray = [ loc.timestamp.description, loc.coordinate.latitude.description, loc.coordinate.longitude.description, loc.altitude.description, loc.horizontalAccuracy.description, loc.speed.description, loc.course.description ]
+                let locStr = commaStr.join(locArray)
+                println(locStr)
+                flightLog.writeLog(locStr)
+                
                 if (currentLoc != nil) {
                     let dist = currentLoc?.distanceFromLocation(loc) as CLLocationDistance!
                     distSinceLastPhoto += dist
@@ -57,13 +63,15 @@ class GpsHandler: NSObject, CLLocationManagerDelegate {
                 
                 // check if distance to take photo has been reached
                 println("distance since last photo - \(distSinceLastPhoto) meters")
-                flightLog.writeLog("distance since last photo - \(distSinceLastPhoto) meters")
                 if (distSinceLastPhoto > 60) {
                     println("taking photo")
                     flightLog.writeLog("taking photo")
                     imagePicker.takePicture()
                     photosTaken++
                     photosTakenLabel.text = "\(photosTaken)"
+                    let picLogStr = commaStr.join([ loc.timestamp.timeIntervalSince1970.description, photosTaken.description ])
+                    println(picLogStr)
+                    picLog.writeLog(picLogStr)
                     distSinceLastPhoto = 0.0
                 }
             }
